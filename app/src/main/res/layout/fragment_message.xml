@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MessageFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/msgToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimary">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/msgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_back"
+                bind:tint="@color/colorAccent" />
+
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/msgImage"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <ImageView
+                    android:id="@+id/imgOnlineStatus"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/ic_online"
+                    bind:layout_anchor="@id/msgImage"
+                    bind:layout_anchorGravity="end|center" />
+
+                <TextView
+                    android:id="@+id/msgUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="4dp"
+                    android:padding="8dp"
+                    android:text="Username"
+                    android:textColor="@color/white" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottieAnimation2"
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="32dp"
+                    android:visibility="invisible"
+                    bind:layout_anchor="@id/msgUserName"
+                    bind:layout_anchorGravity="start|bottom"
+                    bind:lottie_autoPlay="true"
+                    bind:lottie_loop="true"
+                    bind:lottie_colorFilter="@color/white"
+                    bind:lottie_rawRes="@raw/typing_animation"
+                    bind:lottie_repeatCount="20" />
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+            <ImageView
+                android:id="@+id/msgInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_info"
+                bind:tint="@color/colorAccent" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/messageRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/lottieAnimation"
+        android:layout_below="@+id/msgToolbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimation"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_above="@+id/msgData"
+        android:layout_marginStart="5dp"
+        android:visibility="invisible"
+        bind:lottie_autoPlay="true"
+        bind:lottie_loop="true"
+        bind:lottie_rawRes="@raw/typing_animation"
+        bind:lottie_repeatCount="20" />
+
+    <LinearLayout
+        android:id="@+id/msgData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:id="@+id/messageLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.8"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/btnDataSend"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center|bottom"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/ic_file" />
+
+            <EditText
+                android:id="@+id/msgText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:background="@drawable/message_edittext_background"
+                android:hint="Write message.."
+                android:inputType="textMultiLine"
+                android:padding="8dp"
+                android:scrollbars="vertical"
+                android:text="" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnSend"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center|bottom"
+            android:layout_marginEnd="5dp"
+            android:layout_weight=".2"
+            android:src="@drawable/ic_send" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,12 +1,12 @@
-package com.example.chatappkotlin
+package com.example.chatappkotlin.database.model
 
 
 data class UserModel(
     var name: String = "",
-    val status: String = "",
-    val image: String = "",
+    var status: String = "",
+    var image: String = "",
     var number: String = "",
-    val uid: String = "",
+    var uID: String = "",
     val online: String = "offline",
     val typing: String = "false"
 )

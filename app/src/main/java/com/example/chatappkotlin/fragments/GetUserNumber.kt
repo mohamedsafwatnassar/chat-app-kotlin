@@ -8,26 +8,24 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.chatappkotlin.R
-import com.example.chatappkotlin.UserModel
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_get_user_number.view.*
 import java.util.concurrent.TimeUnit
 
 class GetUserNumber : Fragment() {
 
     private var number: String? = null
-    private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
     private var code: String? = null
+    private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_get_user_number, container, false)
 
         view.btnGenerateOTP.setOnClickListener {
@@ -40,32 +38,27 @@ class GetUserNumber : Fragment() {
         callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
-
+                Log.e("sms", credential.smsCode.toString())
             }
 
             override fun onVerificationFailed(e: FirebaseException) {
-                if (e is FirebaseAuthInvalidCredentialsException){
+                if (e is FirebaseAuthInvalidCredentialsException) {
                     Toast.makeText(context, "" + e.message, Toast.LENGTH_SHORT).show()
-                    Log.e("x",e.message.toString())
-                }
-
-                else if (e is FirebaseTooManyRequestsException){
+                    Log.e("xx", e.message.toString())
+                } else if (e is FirebaseTooManyRequestsException) {
                     Toast.makeText(context, "" + e.message, Toast.LENGTH_SHORT).show()
-                    Log.e("xx",e.message.toString())
-                }
-
-                else {
+                    Log.e("xxx", e.message.toString())
+                } else {
                     Toast.makeText(context, "" + e.message, Toast.LENGTH_SHORT).show()
-                    Log.e("xxx",e.message.toString())
+                    Log.e("x", e.message.toString())
                 }
             }
 
-            override fun onCodeSent(verificationCode: String, p1: PhoneAuthProvider.ForceResendingToken) {
-
-                code = verificationCode
+            override fun onCodeSent(p0: String, p1: PhoneAuthProvider.ForceResendingToken) {
+                code = p0
                 activity!!.supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.main_container, VerifiyNumber.newInstance(code!!))
+                    .replace(R.id.main_container, VerifyNumber.newInstance(code!!))
                     .commit()
             }
         }
@@ -79,6 +72,7 @@ class GetUserNumber : Fragment() {
 
     private fun checkNumber(): Boolean {
         number = view!!.edtNumber.text.toString().trim()
+
         if (number!!.isEmpty()) {
             view!!.edtNumber.error = "Field is required"
             return false
@@ -87,4 +81,5 @@ class GetUserNumber : Fragment() {
             return false
         } else return true
     }
+
 }
