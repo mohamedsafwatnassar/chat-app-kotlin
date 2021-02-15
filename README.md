@@ -40,3 +40,10 @@ Kotlin Chat App design and implementation android
 <p align="center">
   <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107908670-4a0eeb00-6f5f-11eb-8ffa-4d8024ec90e5.png">
 </p>
+
+* Another somethings use in this project :
+1. Send notification (when send message to friend make notification to another friend)
+
+2. You can know if your friend online or offline internet
+3. You can know if your friend wrote another letter or not
+
