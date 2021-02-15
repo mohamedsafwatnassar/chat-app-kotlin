@@ -59,7 +59,6 @@ class FirebaseNotificationService : FirebaseMessagingService() {
             map["token"] = token
             databaseReference.updateChildren(map)
         }
-
     }
 
     // create normal notification in case if android less than android(Oreo) [android 8]
@@ -86,9 +85,7 @@ class FirebaseNotificationService : FirebaseMessagingService() {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
 
         val pendingIntent = PendingIntent.getActivity(
-            this, 0,
-            intent, PendingIntent.FLAG_UPDATE_CURRENT
-        )
+            this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         builder.setContentIntent(pendingIntent)
 
@@ -125,9 +122,7 @@ class FirebaseNotificationService : FirebaseMessagingService() {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
 
         val pendingIntent = PendingIntent.getActivity(
-            this, 0, intent,
-            PendingIntent.FLAG_UPDATE_CURRENT
-        )
+            this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         val notification = Notification.Builder(this, AppConstants.CHANNEL_ID)
             .setContentTitle(title)

@@ -60,9 +60,9 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun getToken(message: String) {
+    fun getToken(message: String, type: String) {
         GlobalScope.launch(Dispatchers.Main) {
-            repo!!.getToken(message, context!!)
+            repo!!.getToken(message, context!!, type)
         }
     }
 
@@ -71,8 +71,8 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()){
                     val user = snapshot.getValue(UserModel::class.java)
-                    onlineStatus!!.value = user!!.online
-                    typingStatus!!.value = user.typing
+                    onlineStatus.value = user!!.online
+                    typingStatus.value = user.typing
                 }
             }
 
@@ -89,7 +89,7 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
             "typing" to typing,
         )
 
-        userDao.typingStatus(currentUser.uID!!, map)
+        userDao.typingStatus(currentUser.uID, map)
     }
 
     fun readMessages(chatId : String){

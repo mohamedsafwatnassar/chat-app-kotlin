@@ -164,7 +164,7 @@ class MessageFragment : Fragment() {
 
             } else {
                 chatViewModel!!.sendMessage(message, "text")
-                chatViewModel!!.getToken(message)
+                chatViewModel!!.getToken(message, "text")
                 view.msgText.text = null
             }
         }
@@ -270,7 +270,7 @@ class MessageFragment : Fragment() {
                     val path = uri.result.toString()
 
                     chatViewModel!!.sendMessage(path, "image")
-                    chatViewModel!!.getToken(path)
+                    chatViewModel!!.getToken(path, "image")
                     pd.dismiss()
 
                 }

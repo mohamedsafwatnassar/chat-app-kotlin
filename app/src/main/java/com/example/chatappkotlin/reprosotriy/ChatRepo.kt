@@ -236,7 +236,7 @@ class ChatRepo {
         })
     }
 
-    fun getToken(message: String, context: Context) {
+    fun getToken(message: String, context: Context, type: String) {
         val databaseReference = FirebaseDatabase.getInstance().getReference("Users")
             .child(chatUser.uID)
         databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -250,7 +250,12 @@ class ChatRepo {
                     data.put("hisId", currentUser!!.uID)
                     data.put("hisImage", currentUser!!.image)
                     data.put("title", currentUser!!.name)
-                    data.put("message", message)
+                    if (type == "text"){
+                        data.put("message", message)
+                    }else if (type == "image"){
+                        data.put("message", "photo")
+                    }
+
                     //data.put("chatId", chatId) // not found chatId
 
                     to.put("to", token)
