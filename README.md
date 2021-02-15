@@ -46,6 +46,10 @@ Kotlin Chat App design and implementation android
   <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107912121-90b41380-6f66-11eb-855f-b7faef838dfb.png">
 </p>
 
+* Send notification (when send text(letters) to friend make notification to another friend)
+<p align="center">
+  <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107912127-97428b00-6f66-11eb-833d-4c6d76167d76.png">
+</p>
 
 * Another somethings use in this project :
 1. You can know if your friend online or offline internet
