@@ -1,8 +1,7 @@
 # chat-app-kotlin
 Kotlin Chat App design and implementation android
 
-choose country Code and put your number phone 
-
+* choose country Code and put your number phone 
 
 
 
