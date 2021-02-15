@@ -21,7 +21,22 @@ Kotlin Chat App design and implementation android
   <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107906742-8ab83580-6f5a-11eb-9662-ee4a06e60435.png">
 </p>
 
-
+* when put all your data can chat with your friends by your phone contacts 
 <p align="center">
   <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107906744-8d1a8f80-6f5a-11eb-8063-59bf9014ea0d.png">
+</p>
+
+* here show all to your phone contacts to on your phone 
+<p align="center">
+  <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107907537-a3c1e600-6f5c-11eb-92e4-c8f61d08f28a.png">
+</p>
+
+* here show your profile 
+<p align="center">
+  <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107907548-acb2b780-6f5c-11eb-9fa3-403305b78517.png">
+</p>
+
+* here chat with friends can make chat with him by text and send photos
+<p align="center">
+  <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107908670-4a0eeb00-6f5f-11eb-8ffa-4d8024ec90e5.png">
 </p>
