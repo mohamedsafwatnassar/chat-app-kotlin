@@ -7,7 +7,7 @@ Kotlin Chat App design and implementation android
 </p>
 
 * when sent your verify code put it
-<p align="center">
+<p align="left">
   <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107906431-c7cff800-6f59-11eb-9a11-e68aed6aeb0c.png">
 </p>
 
@@ -17,7 +17,7 @@ Kotlin Chat App design and implementation android
 </p>
 
 * when choose photo can drop it as you like
-<p align="center">
+<p align="left">
   <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107906742-8ab83580-6f5a-11eb-9662-ee4a06e60435.png">
 </p>
 
@@ -27,7 +27,7 @@ Kotlin Chat App design and implementation android
 </p>
 
 * here show all to your phone contacts to on your phone 
-<p align="center">
+<p align="left">
   <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107907537-a3c1e600-6f5c-11eb-92e4-c8f61d08f28a.png">
 </p>
 
