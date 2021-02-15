@@ -2,7 +2,7 @@
 Kotlin Chat App design and implementation android
 
 * choose country Code and put your number phone 
-<p align="center">
+<p align="left">
   <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107904965-05328680-6f56-11eb-827b-840d970c1f93.png">
 </p>
 
@@ -12,7 +12,7 @@ Kotlin Chat App design and implementation android
 </p>
 
 * put your data (image , name and status)
-<p align="center">
+<p align="left">
   <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107906733-8429be00-6f5a-11eb-8fd5-deef1294c1fc.png">
 </p>
 
@@ -22,7 +22,7 @@ Kotlin Chat App design and implementation android
 </p>
 
 * when put all your data can chat with your friends by your phone contacts 
-<p align="center">
+<p align="left">
   <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107906744-8d1a8f80-6f5a-11eb-8063-59bf9014ea0d.png">
 </p>
 
@@ -32,7 +32,7 @@ Kotlin Chat App design and implementation android
 </p>
 
 * here show your profile 
-<p align="center">
+<p align="left">
   <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107907548-acb2b780-6f5c-11eb-9fa3-403305b78517.png">
 </p>
 
