@@ -23,12 +23,12 @@ Kotlin Chat App design and implementation android
 
 * when put all your data can chat with your friends by your phone contacts 
 <p align="center">
-  <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107906744-8d1a8f80-6f5a-11eb-8063-59bf9014ea0d.png">
+  <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107912506-45e6cb80-6f67-11eb-8d88-f9262d950c84.png">
 </p>
 
 * here show all to your phone contacts to on your phone 
 <p align="center">
-  <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107907537-a3c1e600-6f5c-11eb-92e4-c8f61d08f28a.png">
+  <img width="200" height="400" src="https://user-images.githubusercontent.com/55391701/107912513-48e1bc00-6f67-11eb-887a-45790bff7044.png">
 </p>
 
 * here show your profile 
