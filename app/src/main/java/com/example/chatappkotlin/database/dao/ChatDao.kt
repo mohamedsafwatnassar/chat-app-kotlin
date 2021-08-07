@@ -58,7 +58,6 @@ class ChatDao {
     }
 
     fun readMessage(chatId : String?): DatabaseReference {
-
         val reference = realtimeDatabase.getChatRef()
             .child(chatId!!)
 

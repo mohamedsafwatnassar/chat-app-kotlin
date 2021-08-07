@@ -55,6 +55,5 @@ class UserDao {
     fun createToken(hisId: String, map: Map<String, String?>) {
         realtimeDatabase.getUserRef().child(hisId)
             .updateChildren(map)
-
     }
 }

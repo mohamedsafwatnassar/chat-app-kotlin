@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chatappkotlin.Adapter.ChatAdapter
 import com.example.chatappkotlin.R
@@ -66,6 +65,5 @@ class ChatFragment : Fragment() {
 
 
     }
-
 
 }

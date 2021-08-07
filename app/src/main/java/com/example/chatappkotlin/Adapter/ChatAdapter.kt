@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chatappkotlin.R
-import com.example.chatappkotlin.database.dao.ChatDao
 import com.example.chatappkotlin.database.model.ChatModel
 import com.example.chatappkotlin.database.model.UserModel
 import com.example.chatappkotlin.fragments.MessageFragment
@@ -26,7 +25,6 @@ class ChatAdapter(private var chatList: ArrayList<ChatModel>) :
     inner class ChatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         init {
-
             appUtil = AppUtil()
             itemView.setOnClickListener {
                 val position = adapterPosition

@@ -1,47 +1,36 @@
 package com.example.chatappkotlin.fragments
 
 import android.app.Activity
-import android.app.AlertDialog
-import android.app.Dialog
 import android.app.ProgressDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AlertDialogLayout
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.chatappkotlin.Adapter.MessageAdapter
 import com.example.chatappkotlin.R
-import com.example.chatappkotlin.database.model.MessageModel
 import com.example.chatappkotlin.database.model.UserModel
 import com.example.chatappkotlin.viewModel.ChatViewModel
 import com.fxn.pix.Options
 import com.fxn.pix.Pix
 import com.fxn.utility.PermUtil
 import com.google.android.gms.tasks.Task
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import com.iceteck.silicompressorr.SiliCompressor
 import com.orhanobut.hawk.Hawk
-import com.theartofdev.edmodo.cropper.CropImage
-import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_dash_board.*
 import kotlinx.android.synthetic.main.fragment_message.*
 import kotlinx.android.synthetic.main.fragment_message.view.*
-import kotlinx.android.synthetic.main.progress_dialog.view.*
 import java.io.File
 
 class MessageFragment : Fragment() {
@@ -102,19 +91,15 @@ class MessageFragment : Fragment() {
     }
 
     private fun subscribeToLiveData(view: View?) {
-
         // send message and get this messages
         chatViewModel!!.messsageMutable.observe(viewLifecycleOwner, Observer {
             view!!.messageRecyclerView?.apply {
                 if (it != null) {
-                    Log.d("MessageAdapter", "" + it.size)
-
                     layoutManager = LinearLayoutManager(context)
                     (layoutManager as LinearLayoutManager).stackFromEnd = true
                     setHasFixedSize(true)
                     messageAdapter = MessageAdapter(it)
                     adapter = messageAdapter
-
                 }
             }
         })
@@ -234,10 +219,8 @@ class MessageFragment : Fragment() {
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<out String>, grantResults: IntArray
     ) {
-
         when (requestCode) {
             PermUtil.REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS -> {
-
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     pickImage()
                 } else {
@@ -246,7 +229,6 @@ class MessageFragment : Fragment() {
                         Toast.LENGTH_LONG
                     ).show()
                 }
-
                 return
             }
         }
@@ -254,12 +236,13 @@ class MessageFragment : Fragment() {
 
     private fun uploadImage(fileName: String) {
         val pd = ProgressDialog(context)
-        pd.setMessage("Sending")
+        pd.setMessage("Sending...")
         pd.setProgressStyle(ProgressDialog.STYLE_SPINNER)
         pd.show()
 
         val storageReference = FirebaseStorage.getInstance()
-            .getReference(chatId + "/Media/Images/" + currentUser!!.uID + "/" + System.currentTimeMillis())
+            .getReference(chatId + "/Media/Images/" + currentUser!!.uID +
+                    "/" + System.currentTimeMillis())
 
         val uri = Uri.fromFile(File(fileName))
 

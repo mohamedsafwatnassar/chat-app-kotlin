@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".fragment.VerifiyNumber">
+    tools:context=".fragment.VerifyNumber">
 
     <ImageView
         android:id="@+id/imgVerifyNumber"
@@ -54,6 +54,7 @@
         android:inputType="number"
         android:padding="5dp"
         android:textColor="@color/colorAccent"
+        android:text="ss"
         android:textColorHint="@color/colorAccent"
         android:textSize="18sp"
         android:textStyle="bold"

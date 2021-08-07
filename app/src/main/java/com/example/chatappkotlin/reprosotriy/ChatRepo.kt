@@ -73,7 +73,6 @@ class ChatRepo {
 
             updateChat(message, typeMessage)
             updateChatList(message, typeMessage)
-
         }
     }
 
@@ -92,11 +91,15 @@ class ChatRepo {
 
         var messageModel: MessageModel = MessageModel()
         if (typeMessage == "text") {
-            messageModel = MessageModel(currentUser!!.uID, chatUser.uID, message,
-                System.currentTimeMillis().toString(), typeMessage)
-        } else if (typeMessage == "image"){
-            messageModel = MessageModel(currentUser!!.uID, chatUser.uID, message,
-                System.currentTimeMillis().toString(), typeMessage)
+            messageModel = MessageModel(
+                currentUser!!.uID, chatUser.uID, message,
+                System.currentTimeMillis().toString(), typeMessage
+            )
+        } else if (typeMessage == "image") {
+            messageModel = MessageModel(
+                currentUser!!.uID, chatUser.uID, message,
+                System.currentTimeMillis().toString(), typeMessage
+            )
         }
 
         // Create Chat To Start Conversation && Save Messages
@@ -107,15 +110,19 @@ class ChatRepo {
         chatUser = Hawk.get("ClickedUser")
         // Create Child To Add Users && Chatid of conversation for each Member
 
-        var chatListModel : ChatListModel = ChatListModel()
+        var chatListModel: ChatListModel = ChatListModel()
         if (typeMessage == "text") {
             chatListModel =
-                ChatListModel(chatid, message, System.currentTimeMillis().toString(),
-                    chatUser.uID, typeMessage)
-        }else if (typeMessage == "image") {
+                ChatListModel(
+                    chatid, message, System.currentTimeMillis().toString(),
+                    chatUser.uID, typeMessage
+                )
+        } else if (typeMessage == "image") {
             chatListModel =
-                ChatListModel(chatid, message, System.currentTimeMillis().toString(),
-                    chatUser.uID, typeMessage)
+                ChatListModel(
+                    chatid, message, System.currentTimeMillis().toString(),
+                    chatUser.uID, typeMessage
+                )
         }
 
         chatDao.CreateChatList(currentUser!!.uID, chatid, chatListModel)
@@ -130,15 +137,15 @@ class ChatRepo {
         chatUser = Hawk.get("ClickedUser")
         // update LastMessage , Date in the ChatList
 
-        var map : Map<String, String> = HashMap()
+        var map: Map<String, String> = HashMap()
 
-        if (typeMessage == "text"){
+        if (typeMessage == "text") {
             map = mapOf(
                 "lastMessage" to message,
                 "date" to System.currentTimeMillis().toString(),
                 "type" to typeMessage
             )
-        }else if (typeMessage == "image"){
+        } else if (typeMessage == "image") {
             map = mapOf(
                 "lastMessage" to message,
                 "date" to System.currentTimeMillis().toString(),
@@ -157,11 +164,15 @@ class ChatRepo {
         // Add new Message in the Conversation to Chat
         var messageModel: MessageModel = MessageModel()
         if (typeMessage == "text") {
-            messageModel = MessageModel(currentUser!!.uID, chatUser.uID, message,
-                System.currentTimeMillis().toString(), typeMessage)
+            messageModel = MessageModel(
+                currentUser!!.uID, chatUser.uID, message,
+                System.currentTimeMillis().toString(), typeMessage
+            )
         } else if (typeMessage == "image") {
-            messageModel = MessageModel(currentUser!!.uID, chatUser.uID, message,
-                System.currentTimeMillis().toString(), typeMessage)
+            messageModel = MessageModel(
+                currentUser!!.uID, chatUser.uID, message,
+                System.currentTimeMillis().toString(), typeMessage
+            )
         }
 
         chatDao.CreateChat(chatId, messageModel)
@@ -191,6 +202,7 @@ class ChatRepo {
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
+                        Log.d("readChat1", ""+ snapshot.value)
                         chatModels = ArrayList()
                         for (ds in snapshot.children) {
                             val chatListModel = ds.getValue(ChatListModel::class.java)
@@ -209,9 +221,12 @@ class ChatRepo {
     }
 
     private fun getUser(member: String, chatListModel: ChatListModel?) {
+        Log.d("getUser4", ""+ chatListModel)
+
         chatDao.getMemberUser(member).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
+                    Log.d("getUser1", ""+ snapshot.value)
                     val user = snapshot.getValue(UserModel::class.java)
                     val chatModel = ChatModel(
                         chatListModel!!.chatId,
@@ -223,9 +238,10 @@ class ChatRepo {
                         user.uID,
                         chatListModel.type
                     )
+                    Log.d("getUser2", ""+ chatModel)
                     chatModels!!.add(chatModel)
                 }
-
+                Log.d("getUser3", ""+ chatModels)
                 allChat.value = chatModels
             }
 
@@ -250,9 +266,9 @@ class ChatRepo {
                     data.put("hisId", currentUser!!.uID)
                     data.put("hisImage", currentUser!!.image)
                     data.put("title", currentUser!!.name)
-                    if (type == "text"){
+                    if (type == "text") {
                         data.put("message", message)
-                    }else if (type == "image"){
+                    } else if (type == "image") {
                         data.put("message", "photo")
                     }
 

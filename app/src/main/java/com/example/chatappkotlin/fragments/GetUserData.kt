@@ -78,6 +78,7 @@ class GetUserData : Fragment() {
     // upload user name, user status and user image in realtime Database
     private fun uploadData(username: String, userStatus: String, userImage: Uri) = kotlin.run {
 
+        //"/ProfileImage/image"
         storageReference!!.child(firebaseAuth!!.uid + AppConstants.PATH)
             .putFile(userImage).addOnSuccessListener {
                 val task = it.storage.downloadUrl
@@ -105,6 +106,7 @@ class GetUserData : Fragment() {
                             }
                         })
                     })
+
                     startActivity(Intent(context, DashBoardActivity::class.java))
                     activity!!.finish()
                 }
@@ -136,7 +138,6 @@ class GetUserData : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
-
             CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE -> {
                 val result = CropImage.getActivityResult(data)
                 if (resultCode == Activity.RESULT_OK) {
@@ -178,7 +179,4 @@ class GetUserData : Fragment() {
             Manifest.permission.WRITE_EXTERNAL_STORAGE
         ), 10001
     )
-
-
-
 }

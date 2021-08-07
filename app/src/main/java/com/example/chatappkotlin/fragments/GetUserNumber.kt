@@ -62,6 +62,7 @@ class GetUserNumber : Fragment() {
                     .commit()
             }
         }
+
         return view
     }
 

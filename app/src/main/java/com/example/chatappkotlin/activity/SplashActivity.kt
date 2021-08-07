@@ -1,9 +1,9 @@
 package com.example.chatappkotlin.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
 import com.example.chatappkotlin.R
 import com.example.chatappkotlin.database.dao.UserDao
 import com.example.chatappkotlin.database.model.UserModel
@@ -13,6 +13,7 @@ import com.orhanobut.hawk.Hawk
 
 class SplashActivity : AppCompatActivity() {
     var userModel: UserModel? = UserModel()
+
     var userDao: UserDao? = UserDao()
 
     override fun onCreate(savedInstanceState: Bundle?) {
